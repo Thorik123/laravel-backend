@@ -20,6 +20,7 @@ class UserSeeder extends Seeder
             'name' => 'Thorik',
             'email' => 'thorik@mail.com',
             'email_verified_at' => now(),
+            'role' => 'superadmin',
             'password' => Hash::make('12345678'),
         ]);
 
@@ -27,6 +28,7 @@ class UserSeeder extends Seeder
             'name' => 'Birry',
             'email' => 'birry@mail.com',
             'email_verified_at' => now(),
+            'role' => 'admin',
             'password' => Hash::make('12345678'),
         ]);
     }
