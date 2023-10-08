@@ -43,9 +43,16 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Category $category)
     {
-        //
+        $category->update(
+            $request->validate([
+                'name' => 'required | string | max:20',
+                'description' => 'required',
+            ])
+        );
+
+        return $category;
     }
 
     /**
