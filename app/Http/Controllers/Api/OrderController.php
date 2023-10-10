@@ -25,7 +25,7 @@ class OrderController extends Controller
             OrderItem::create([
                 'order_id' => $order->id,
                 'product_id' => $item['id'],
-                'quantity' => $item['quantity'],
+                'quantity' => $item['quantity']
             ]);
         }
 
@@ -33,9 +33,8 @@ class OrderController extends Controller
         $paymentUrl = $midtrans->getPaymentUrl($order->load('user', 'orderItems'));
 
         $order->update([
-            'payment_url' => $paymentUrl,
+            'payment_url' => $paymentUrl
         ]);
-
         return response()->json([
             'data' => $order
         ]);

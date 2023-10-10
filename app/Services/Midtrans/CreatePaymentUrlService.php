@@ -18,9 +18,10 @@ class CreatePaymentUrlService extends Midtrans
 
     public function getPaymentUrl($order)
     {
+
         $item_details = new Collection();
 
-        foreach ($order->orderItem as $item) {
+        foreach ($order->orderItems as $item) {
             $product = Product::find($item->product_id);
             $item_details->push([
                 'id' => $product->id,
